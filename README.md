@@ -27,3 +27,34 @@ Where 'X' represents a node with an associated object.
 -xx-x- <br>
 --xxx- <br>
 --x--- <br>
+
+## Classes
+
+```mermaid
+classDiagram
+    class Node {
+        String payload
+        Node next
+        Node last
+    }
+
+    class LinkedList {
+        Node head
+        Node tail
+        LinkedList next
+        LinkedList last
+        +append()
+        +appendAfter()
+        +getIndex()
+        +getPayload()
+    }
+
+    class Map {
+        LinkedList head
+        LinkedList tail
+        +setColumns()
+        +setRows()
+        +getColumns()
+        +getRows()
+    }
+```
