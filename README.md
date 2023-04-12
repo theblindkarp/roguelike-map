@@ -33,28 +33,55 @@ Where 'X' represents a node with an associated object.
 ```mermaid
 classDiagram
     class Node {
-        String payload
-        Node next
-        Node last
+        +setNext(Node next)
+        +getNext()
+        +setPrevious(Node next)
+        +getPrevious()
+    }
+
+    <<Interface>> Node
+
+    class RowNode {
+        string symbol
+        RowNode next
+        RowNode previous
+        +RowNode()
+        +setSymbol()
+        +getSymbol()
+    }
+
+    class ColNode {
+        RowNode head
+        RowNode tail
+        ColNode next
+        ColNode previous
+        +ColNode()
+    }
+
+    class LLMap {
+        ColNode head
+        ColNode tail
+        +LLMap()
     }
 
     class LinkedList {
-        Node head
-        Node tail
-        LinkedList next
-        LinkedList last
+        +setHead(Node head)
+        +getHead()
+        +setTail(Node tail)
+        +getTail()
         +append()
-        +appendAfter()
-        +getIndex()
-        +getPayload()
+        +add(int index)
+        +pop(int index) Node
+        +size()
+    }
+    <<Interace>> LinkedList
+
+    class Item {
+        String symbol
+        int layer
+        String name
+        int[2] coord
     }
 
-    class Map {
-        LinkedList head
-        LinkedList tail
-        +setColumns()
-        +setRows()
-        +getColumns()
-        +getRows()
-    }
+    RowNode <-- ColNode
 ```
